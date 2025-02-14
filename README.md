@@ -155,3 +155,5 @@ mgr.manage()  # Метод, уникальный для менеджера
 ## Инкапсуляция
 
 <img src="https://github.com/TeachKait20/NoneCode/blob/main/OOP+python+principles/mine-autumn.gif?raw=true" width=400>
+
+**Инкапсуляция** - это принцип, который подразумевает сокрытие деталей реализации класса и предоставление к ним доступа только через методы.
