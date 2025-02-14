@@ -231,38 +231,87 @@ account.withdraw(200)
 
 <img src="https://github.com/TeachKait20/NoneCode/blob/main/OOP+python+principles/mine-winter.gif?raw=true" width=400>
 
-**Полиморфизм** - принцип, который позволяет объектам разных классов использовать методы с одинаковыми именами, но разной реализацией.
-
-Есть три класса означающие азные типы автомобилей. 
+**Полиморфизм** - принцип, который позволяет объектам разных классов использовать методы с одинаковыми именами, но разной реализацией. <br><br>
+В программировании полиморфизм позволяет использовать один интерфейс для разных типов объектов. Это означает, что разные классы могут реализовывать один и тот же метод по-разному, но при этом вызывать его можно одинаковым образом. <br><br>
+Рассмотрим пример с автомобилями. У нас есть три разных типа машин: дрифтовая, раллийная и гоночная. Каждая из них имеет метод `engine_started()`, но реализация немного различается:
 ```python
 class Drift_Car:
     def __init__(self, car_make):
         self.car_make = car_make
 
-    def engine_tarted(self):
+    def engine_started(self):
         print(f"У машины для дрифта марки {self.car_make} заведён двигатель.")
 
 class Rally_car:
     def __init__(self, car_make):
         self.car_make = car_make
 
-    def engine_tarted(self):
+    def engine_started(self):
         print(f"У машины для ралли марки {self.car_make} заведён двигатель.")
 
 class Racing_car:
     def __init__(self, car_make):
         self.car_make = car_make
 
-    def engine_tarted(self):
+    def engine_started(self):
         print(f"У машины для гонок марки {self.car_make} заведён двигатель.")
 
+# Создаём объекты разных машин и вызываем их метод
 car1 = Drift_Car("Toyota Mark 2")
-car1.engine_tarted()
+car1.engine_started()
 
 car2 = Rally_car("Subaru Impreza")
-car2.engine_tarted()
+car2.engine_started()
 
 car3 = Racing_car("Porsche 911")
-car3.engine_tarted()
+car3.engine_started()
 ```
+Получаем:
+```
+У машины для дрифта марки Toyota Mark 2 заведён двигатель.
+У машины для ралли марки Subaru Impreza заведён двигатель.
+У машины для гонок марки Porsche 911 заведён двигатель.
+```
+Этот код работает, но в нём есть дублирование. Мы вручную вызываем метод `engine_started()` для каждого объекта. В случае, если у нас будет много машин, код станет громоздким. <br><br>
+Полиморфизм позволяет объединить вызов методов разных классов в одном месте, например, с помощью функции:
+```python
+class DriftCar:
+    def __init__(self, car_make):
+        self.car_make = car_make
+
+    def engine_started(self):
+        print(f"У машины для дрифта марки {self.car_make} заведён двигатель.")
+
+class RallyCar:
+    def __init__(self, car_make):
+        self.car_make = car_make
+
+    def engine_started(self):
+        print(f"У машины для ралли марки {self.car_make} заведён двигатель.")
+
+class RacingCar:
+    def __init__(self, car_make):
+        self.car_make = car_make
+
+    def engine_started(self):
+        print(f"У машины для гонок марки {self.car_make} заведён двигатель.")
+
+# Функция, использующая полиморфизм
+def start_engine(car):
+    car.engine_started()
+
+# Передаём в функцию разные типы автомобилей
+start_engine(DriftCar("Toyota Mark 2"))
+start_engine(RallyCar("Subaru Impreza"))
+start_engine(RacingCar("Porsche 911"))
+```
+Получаем:
+```
+У машины для дрифта марки Toyota Mark 2 заведён двигатель.
+У машины для ралли марки Subaru Impreza заведён двигатель.
+У машины для гонок марки Porsche 911 заведён двигатель.
+```
+* Метод `engine_started()` реализован в каждом классе по-своему, но вызывается единым способом.
+* Функция `start_engine(car)` не зависит от конкретного типа автомобиля – она просто вызывает метод `engine_started()` у переданного объекта.
+* Это позволяет легко расширять код, добавляя новые типы машин без необходимости изменять существующую функцию.
 
