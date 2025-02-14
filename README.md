@@ -229,5 +229,40 @@ account.withdraw(200)
 
 ## Принцип 3. Полиморфизм
 
+<img src="https://github.com/TeachKait20/NoneCode/blob/main/OOP+python+principles/mine-winter.gif?raw=true" width=400>
+
 **Полиморфизм** - принцип, который позволяет объектам разных классов использовать методы с одинаковыми именами, но разной реализацией.
+
+Есть три класса означающие азные типы автомобилей. 
+```python
+class Drift_Car:
+    def __init__(self, car_make):
+        self.car_make = car_make
+
+    def engine_tarted(self):
+        print(f"У машины для дрифта марки {self.car_make} заведён двигатель.")
+
+class Rally_car:
+    def __init__(self, car_make):
+        self.car_make = car_make
+
+    def engine_tarted(self):
+        print(f"У машины для ралли марки {self.car_make} заведён двигатель.")
+
+class Racing_car:
+    def __init__(self, car_make):
+        self.car_make = car_make
+
+    def engine_tarted(self):
+        print(f"У машины для гонок марки {self.car_make} заведён двигатель.")
+
+car1 = Drift_Car("Toyota Mark 2")
+car1.engine_tarted()
+
+car2 = Rally_car("Subaru Impreza")
+car2.engine_tarted()
+
+car3 = Racing_car("Porsche 911")
+car3.engine_tarted()
+```
 
