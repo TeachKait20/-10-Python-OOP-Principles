@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/2276bd7b-df84-4a5c-ace2-4c6a5214699b)# -10-Python-OOP-Principles
+-10-Python-OOP-Principles
 ## Принципы ООП Python
 <img src="https://github.com/TeachKait20/NoneCode/blob/main/OOP+python+principles/mine-bee.gif?raw=true" width=200>
 
