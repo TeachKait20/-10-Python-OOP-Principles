@@ -1,4 +1,4 @@
-### -10-Python-OOP-Principles
+# -10-Python-OOP-Principles
 ## Принципы ООП Python
 <img src="https://github.com/TeachKait20/NoneCode/blob/main/OOP+python+principles/mine-bee.gif?raw=true" width=200>
 
