@@ -1,4 +1,4 @@
-# -10-Python-OOP-Principles
+![image](https://github.com/user-attachments/assets/2276bd7b-df84-4a5c-ace2-4c6a5214699b)# -10-Python-OOP-Principles
 ## Принципы ООП Python
 <img src="https://github.com/TeachKait20/NoneCode/blob/main/OOP+python+principles/mine-bee.gif?raw=true" width=200>
 
@@ -151,3 +151,7 @@ mgr.manage()  # Метод, уникальный для менеджера
 * Дочерний класс `Manager` наследует `Employee`, но также получает дополнительный атрибут `department` и метод `manage()`.
 * Конструкция `super` может наследовать атрибуты родительского класса. Использование `super()` позволяет `Manager` вызывать конструктор `Employee`, избегая дублирования кода.
 * Создаются объекты обычного сотрудника (`emp`) и менеджера (`mgr`), после чего проверяется их функциональность.
+
+## Инкапсуляция
+
+<img src="https://github.com/TeachKait20/NoneCode/blob/main/OOP+python+principles/mine-autumn.gif?raw=true" width=400>
