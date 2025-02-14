@@ -46,7 +46,7 @@ obj.method_parent()  # Метод родительского класса дос
 obj.method_child()   # Метод дочернего класса
 
 ```
-### Пример наследования 1.
+### Пример наследования 1
 Допустим, у нас есть два устройства: телефон и ноутбук. У каждого из них есть единственный атрибут — модель или производитель.
 ```python
 class Smartphone():
@@ -118,7 +118,7 @@ Samsung: Звонок на номер +7 900 123 45 67...
 Ноутбук MacBook Pro запускает Visual Studio Code.
 Устройство выключено.
 ```
-### Пример наследования 2.
+### Пример наследования 2
 Программа, моделирующая структуру сотрудников в компании.
 ```python
 class Employee:
@@ -157,3 +157,49 @@ mgr.manage()  # Метод, уникальный для менеджера
 <img src="https://github.com/TeachKait20/NoneCode/blob/main/OOP+python+principles/mine-autumn.gif?raw=true" width=400>
 
 **Инкапсуляция** - это принцип, который подразумевает сокрытие деталей реализации класса и предоставление к ним доступа только через методы.
+Синтакис:
+```python
+class Name_class:
+    def __init__(self, atr1, atr2):
+        self.atr1 = atr1
+        self.__atr2 = atr2  # приватный атрибут
+
+    def __private_method(self):  # приватный метод
+        pass
+
+    def public_method(self):
+        self.__private_method()
+        return self.__atr2
+
+obj = Name_class('atr1', 'atr2')
+obj.public_method()
+# obj.__private_method() - ошибка
+```
+
+### Пример инкапсуляции 1
+В реальном мире тоже существуют объекты с закрытыми методами. Например, холодильник. Как пользователи, мы можем только включить его в розетку, а затем он начнёт работать самостоятельно, без нашего вмешательства в его внутренние процессы.
+```python
+class Refrigerator:
+    def __init__(self, color, brand):
+        self.color = color
+        self.brand = brand
+
+    def __cold_on(self):
+        print("Стало холоднее")
+
+    def __freezer_on(self):
+        print("Морозильная камера включилась")
+
+    def turn_on(self):
+        print("Холодильник включён в розетку")
+        self.__cold_on()
+        self.__freezer_on()
+
+ref_1 = Refrigerator("Серый", "LG")
+ref_1.turn_on()
+# ref_1.__cold_on()  # Ошибка: метод __cold_on является приватным
+```
+Внутренние детали работы объекта скрыты от пользователя, и доступ к ним возможен только через публичные методы, как `turn_on()`.
+
+### Пример инкапсуляции 2
+
