@@ -619,7 +619,7 @@ if __name__ == "__main__":
 
 ### Задание 1
 
-Ваша задача — переделать существующую программу из [примера](https://github.com/TeachKait20/-10-Python-OOP-Principles/edit/main/README.md#%D0%B5%D1%89%D1%91-%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%80) так, чтобы она могла запускать любую игру, а не только Minecraft. <br><br>
+Ваша задача — переделать существующую программу из [примера](https://github.com/TeachKait20/-10-Python-OOP-Principles/blob/main/README.md#%D0%B5%D1%89%D1%91-%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%80) так, чтобы она могла запускать любую игру, а не только Minecraft. <br><br>
 Пример входных и выходных данных:
 ```python
 minecraft = GameLauncher("Minecraft", r"C:\Games\Minecraft\MinecraftLauncher.exe")
