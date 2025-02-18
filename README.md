@@ -578,4 +578,37 @@ print(expensive_computation(4))  # Кэшированный результат
 ```
 При использовании @lru_cache результаты для одинаковых аргументов сохраняются в кэше, и если функция вызывается с теми же аргументами, результат будет возвращён из кэша, что ускоряет выполнение.
 
-## new
+## Ещё пример
+
+<img src="https://github.com/TeachKait20/NoneCode/blob/main/OOP+python+principles/mine-parrot.gif?raw=true" width=200>
+
+Код на Python, который использует `subprocess` для запуска Minecraft на Windows из папки Game.
+```python
+import os
+import subprocess
+
+class MinecraftLauncher:
+    def __init__(self, game_folder="C:\\Game\\Minecraft"):
+        self.game_folder = game_folder
+        self.executable = os.path.join(self.game_folder, "MinecraftLauncher.exe")
+
+    def is_game_installed(self):
+        """Проверяет, установлен ли Minecraft в указанной папке"""
+        return os.path.exists(self.executable)
+
+    def launch_game(self):
+        """Запускает Minecraft, если он установлен"""
+        if self.is_game_installed():
+            print("Запуск Minecraft...")
+            subprocess.Popen(self.executable, shell=True)
+        else:
+            print("Ошибка: игра Minecraft не найдена в указанной папке!")
+
+if __name__ == "__main__":
+    launcher = MinecraftLauncher()
+    launcher.launch_game()
+```
+* Определяется путь к игре (`C:\Game\Minecraft`).
+* Проверяется, существует ли файл `MinecraftLauncher.exe` (если нет — выводится ошибка).
+* Используется `subprocess.Popen()`, чтобы запустить игру в фоновом режиме.
+* Код работает в Windows, так как путь указан в Windows-стиле (`C:\Game\Minecraft`).
