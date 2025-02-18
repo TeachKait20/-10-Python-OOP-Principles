@@ -637,3 +637,6 @@ genshin.run()
 
 Ошибка: Игра Genshin Impact не запущена. Путь C:\Games\Genshin Impact\GenshinImpact.exe не найден.
 ```
+
+### Задание 2
+
