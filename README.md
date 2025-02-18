@@ -433,4 +433,149 @@ describe_bird(crow)
 | `@dataclass` | Автоматически добавляет `__init__`, `__repr__`, `__eq__` и другие методы. | 
 | `@functools.lru_cache` | Кэширует результаты вызовов метода для оптимизации. | 
 
+### 1. @staticmethod
+Статический метод не зависит от экземпляра класса и может быть вызван без создания объекта.
+```python
+class MyClass:
+    @staticmethod
+    def greet(name):
+        print(f"Привет, {name}!")
 
+# Вызов без создания экземпляра
+MyClass.greet("Игорь")
+```
+Выход:
+```
+Привет, Игорь!
+```
+### 2. @classmethod
+Метод класса принимает первый аргумент как сам класс (`cls`), а не экземпляр объекта.
+```python
+class MyClass:
+    name = "MyClass"
+    
+    @classmethod
+    def print_class_name(cls):
+        print(f"Название класса: {cls.name}")
+
+# Вызов метода класса
+MyClass.print_class_name()
+```
+Выход:
+```
+Название класса: MyClass
+```
+### 3. @property
+Используется для создания свойства, которое можно обращаться как к атрибуту, но это будет метод.
+```python
+class Circle:
+    def __init__(self, radius):
+        self._radius = radius
+    
+    @property
+    def area(self):
+        return 3.14 * self._radius ** 2
+
+circle = Circle(5)
+print(circle.area)  # Обращаемся как к атрибуту, но это метод
+```
+Выход:
+```
+78.5
+```
+### 4. @value.setter
+Декоратор @setter используется для создания метода, который позволяет установить значение свойства.
+```python
+class Circle:
+    def __init__(self, radius):
+        self._radius = radius
+    
+    @property
+    def radius(self):
+        return self._radius
+    
+    @radius.setter
+    def radius(self, value):
+        if value < 0:
+            raise ValueError("Радиус не может быть отрицательным!")
+        self._radius = value
+
+circle = Circle(5)
+circle.radius = 10  # Устанавливаем новое значение радиуса
+print(circle.radius)  # Получаем радиус
+```
+Выход:
+```
+10
+```
+### 5. @value.deleter
+Декоратор @deleter позволяет удалить атрибут, используя оператор del.
+```python
+class Circle:
+    def __init__(self, radius):
+        self._radius = radius
+    
+    @property
+    def radius(self):
+        return self._radius
+    
+    @radius.setter
+    def radius(self, value):
+        if value < 0:
+            raise ValueError("Радиус не может быть отрицательным!")
+        self._radius = value
+    
+    @radius.deleter
+    def radius(self):
+        print("Радиус удален")
+        del self._radius
+
+circle = Circle(5)
+del circle.radius  # Удаляем атрибут
+```
+Выход:
+```
+Радиус удален
+```
+### 6. @dataclass
+Декоратор @dataclass используется для создания классов данных, автоматически генерируя методы, такие как `__init__`, `__repr__`, `__eq__` и другие.
+```python
+from dataclasses import dataclass
+
+@dataclass
+class Point:
+    x: int
+    y: int
+
+point = Point(10, 20)
+print(point)  # Автоматически вызывается __repr__
+```
+Выход:
+```
+Point(x=10, y=20)
+```
+### 7. functools.lru_cache
+Декоратор @lru_cache используется для кэширования результатов функции, что улучшает производительность при многократных вызовах функции с одинаковыми аргументами.
+```python
+from functools import lru_cache
+
+@lru_cache(maxsize=3)
+def expensive_computation(n):
+    print(f"Выполнение для {n}")
+    return n * n
+
+print(expensive_computation(4))
+print(expensive_computation(5))
+print(expensive_computation(4))  # Кэшированный результат
+```
+Выход:
+```
+Выполнение для 4
+16
+Выполнение для 5
+25
+16
+```
+При использовании @lru_cache результаты для одинаковых аргументов сохраняются в кэше, и если функция вызывается с теми же аргументами, результат будет возвращён из кэша, что ускоряет выполнение.
+
+## new
