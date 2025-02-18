@@ -612,3 +612,28 @@ if __name__ == "__main__":
 * Проверяется, существует ли файл `MinecraftLauncher.exe` (если нет — выводится ошибка).
 * Используется `subprocess.Popen()`, чтобы запустить игру в фоновом режиме.
 * Код работает в Windows, так как путь указан в Windows-стиле (`C:\Game\Minecraft`).
+
+## Задания
+
+<img src="https://github.com/TeachKait20/NoneCode/blob/main/OOP+python+principles/mine-night.gif?raw=true" width=400>
+
+### Задание 1
+
+Ваша задача — переделать существующую программу из [примера](https://github.com/TeachKait20/-10-Python-OOP-Principles/edit/main/README.md#%D0%B5%D1%89%D1%91-%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%80) так, чтобы она могла запускать любую игру, а не только Minecraft. <br><br>
+Пример входных и выходных данных:
+```python
+minecraft = GameLauncher("Minecraft", r"C:\Games\Minecraft\MinecraftLauncher.exe")
+gta5 = GameLauncher("GTA V", r"D:\Rockstar Games\GTA V\GTA5.exe")
+genshin = GameLauncher("Genshin Impact", r"C:\Games\Genshin Impact\GenshinImpact.exe")
+
+minecraft.run()
+gta5.run()
+genshin.run()
+```
+```
+Игра Minecraft успешно запущена с пути: C:\Games\Minecraft\MinecraftLauncher.exe
+
+Игра GTA V успешно запущена с пути: D:\Rockstar Games\GTA V\GTA5.exe
+
+Ошибка: Игра Genshin Impact не запущена. Путь C:\Games\Genshin Impact\GenshinImpact.exe не найден.
+```
